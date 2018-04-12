@@ -1,0 +1,91 @@
+<h1>Gestions des costumes</h1>
+<!-- la liste des couleur -->
+<!-- une liste de clients ou de médecins -->
+<div class="row tab-content alert alert-warning" ng-if="colours.data.length!=0">
+    <div class="tab-pane active col-md-6">
+        <table id="colours" class="table">
+            <thead>
+            <tr>
+                <th data-toggle="true">
+                    <span>Costume</span>
+                </th>
+                <th>
+                    <span>Image</span>
+                </th>
+                <th>
+                    <span>Quantités</span>
+                </th>
+                <th>
+                    <span>Comment</span>
+                </th>
+                <th>
+                    <span>Catégorie</span>
+                </th>
+                <th>
+                    <span>Modèle</span>
+                </th>
+                <th>
+                    <span>Couleur</span>
+                </th>
+                <th>
+                    <span>Malle</span>
+                </th>
+                <th>
+                    <span>Genre</span>
+                </th>
+                <th>
+                    <span>Modifier</span>
+                </th>
+                <th>
+                    <span>Supprimer</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in objects.data">
+                <td>
+                    {{product.name}}
+                </td>
+                <td>
+                    <img src="assets/images/product/{{product.picture}}" width="100"  ng-if="product.picture"/>
+                </td>
+                <td>
+                    {{product.totalQuantity}}
+                </td>
+                <td>
+                    {{product.comment}}
+                </td>
+                <td>
+                    {{product.category.name}}
+                </td>
+                <td>
+                    {{product.type.name}}
+                </td>
+                <td>
+                    <div ng-if="product.colour">
+                        <div class="color" style="background-color: {{product.colour.colorCode}}" ng-if="product.colour.colorCode"></div>
+                        <div class="color multicolor" ng-if="!product.colour.colorCode"></div>
+                    </div>
+                </td>
+                <td>
+                    {{product.box.name}}
+                </td>
+                <td>
+                    {{product.kind.name}}
+                </td>
+                <td>
+                    <button class="btn btn-small btn-primary" ng-click="edit(product)">Modifier</button>
+                </td>
+                <td>
+                    <button href="" ng-if="product.id" class="btn btn-small btn-danger ng-scope ng-binding status-suspended" ng-click="delete(product.id)">
+                        Supprimer
+                    </button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <input type = "file" file-model = "myFile"/>
+        <button ng-click = "uploadFile()">upload me</button>    </div>
+</div>

@@ -1,0 +1,60 @@
+
+<h1>Gestions des couleurs</h1>
+
+
+<!-- la liste des couleur -->
+<!-- une liste de clients ou de médecins -->
+<div class="row tab-content alert alert-warning" ng-if="colours.data.length!=0">
+    <div class="tab-pane active col-md-6">
+        <table id="colours" class="table">
+            <thead>
+            <tr>
+                <th data-toggle="true">
+                    <span>Couleur</span>
+                </th>
+                <th>
+                    <span>Code</span>
+                </th>
+                <th>
+                    <span>Modifier</span>
+                </th>
+                <th>
+                    <span>Supprimer</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="color in objects.data">
+                <td>
+                    {{color.name}}
+                </td>
+                <td>
+                    <div class="color" style="background-color: {{color.colorCode}}" ng-if="color.colorCode"></div>
+                    <div class="color multicolor" ng-if="!color.colorCode"></div>
+                </td>
+                <td>
+                    <button class="btn btn-small btn-primary" ng-click="edit(color)">Modifier</button>
+                </td>
+                <td>
+                    <button href="" ng-if="color.id" class="btn btn-small btn-danger ng-scope ng-binding status-suspended" ng-click="deleteColour(color.id)">
+                        Supprimer
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <form>
+                    <td><input ng-model="addModel.name"/></td>
+                    <td>
+                        <color-picker id="color" ng-model="addModel.code" options="options" api="api" event-api="eventApi"></color-picker>
+                    </td>
+                    <td>
+                        <button ng-click="addColour()" class="btn btn-success ng-scope ng-binding" >
+                            Ajouter
+                        </button>
+                    </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+  "name": "danse-angular",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular2-image-upload": "^1.0.0-rc.0"
+  }
+}

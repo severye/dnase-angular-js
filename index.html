@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="danse">
+<head>
+    <!-- META -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Angular client for Danse">
+    <meta name="author" content="Severine Bouillet">
+
+
+    <!-- le CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="bower_components/footable/css/footable.core.min.css" rel="stylesheet"/>
+    <link href="assets/css/danse.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/angularjs-color-picker-bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/angularjs-color-picker.min.css" />
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="bower_components/footable/dist/footable.min.js" type="text/javascript"></script>
+    <!-- angular js -->
+
+
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/angular-translate.min.js"></script>
+    <script type="text/javascript" src="lib/angular-base64.min.js"></script>
+    <script type="text/javascript" src="lib/tinycolor-min.js"></script>
+    <script type="text/javascript" src="lib/angularjs-color-picker.min.js"></script>
+
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
+
+
+    <script type="text/javascript" src="bower_components/app.js"></script>
+
+
+    <!--directive-->
+    <script type="text/javascript" src="directive/errors.js"></script>
+    <script type="text/javascript" src="directive/waiting.js"></script>
+    <script type="text/javascript" src="directive/upload.js"></script>
+
+    <!--controllers-->
+    <script type="text/javascript" src="controller/appController.js"></script>
+    <script type="text/javascript" src="controller/colorCtrl.js"></script>
+    <script type="text/javascript" src="controller/colourCtrl.js"></script>
+    <script type="text/javascript" src="controller/categoryCtrl.js"></script>
+    <script type="text/javascript" src="controller/kindCtrl.js"></script>
+    <script type="text/javascript" src="controller/typeCtrl.js"></script>
+    <script type="text/javascript" src="controller/sizeCtrl.js"></script>
+    <script type="text/javascript" src="controller/boxCtrl.js"></script>
+    <script type="text/javascript" src="controller/productCtrl.js"></script>
+
+    <!-- services -->
+    <script type="text/javascript" src="service/dao.js"></script>
+    <script type="text/javascript" src="service/config.js"></script>
+    <script type="text/javascript" src="service/utils.js"></script>
+    <script type="text/javascript" src="service/objectManager.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
+
+    <title>Danse attitude</title>
+</head>
+
+<!-- contrôleur [appCtrl], modèle [app] -->
+<body ng-controller="appCtrl">
+    <div class="container">
+        <h1>Danse</h1>
+
+        <!-- le message d'attente -->
+        <waiting model="waiting"></waiting>
+
+        <!-- la liste d'erreurs -->
+        <errors model="errors"></errors>
+        <a href=""><span ng-click="app.manageColours()">Couleur</span></a>
+        <a href=""><span ng-click="app.manageCategories()">Categorie</span></a>
+        <a href=""><span ng-click="app.manageKinds()">Genre</span></a>
+        <a href=""><span ng-click="app.manageTypes()">Modèle</span></a>
+        <a href=""><span ng-click="app.manageSizes()">Taille</span></a>
+        <a href=""><span ng-click="app.manageBoxes()">Malle</span></a>
+        <a href=""><span ng-click="app.manageProducts()">Costumes</span></a>
+        <ng-include src="'views/navbar.html'"></ng-include>
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

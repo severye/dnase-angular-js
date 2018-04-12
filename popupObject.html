@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h3>Modifier la couleur</h3>
+</div>
+<form name="form.object" ng-submit="submitFormObject()" novalidate>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Libelle *</label>
+            <input type="text" name="name" class="form-control"  ng-model="objectToUpdate.name" required>
+            <p  class="help-block" ng-show="form.object.name.$invalid && !form.object.name.$pristine"  required>Le libelle est obligatoire</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.object.$invalid">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

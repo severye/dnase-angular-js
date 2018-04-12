@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h3>Modifier le produit</h3>
+</div>
+<form name="form.product" ng-submit="submitForm()" novalidate>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Libelle *</label>
+            <input type="text" name="name" class="form-control"  ng-model="productToUpdate.name" required>
+            <p  class="help-block" ng-show="form.product.name.$invalid && !form.product.name.$pristine"  required>Le libelle est obligatoire</p>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <img src="assets/images/product/{{productToUpdate.picture}}" width="150"/>
+
+        </div>
+        <div class="form-group">
+            <label>Quantité</label>
+            <input type="text" name="totalQuantity" class="form-control"  ng-model="productToUpdate.totalQuantity" >
+        </div>
+        <div class="form-group">
+            <label>Comment</label>
+            <input type="text" name="comment" class="form-control"  ng-model="productToUpdate.comment" >
+        </div>
+        <div>
+
+            <label for="colour">Couleur</label>
+            <select id="colour" ng-model="productToUpdate.colour.id" ng-options="colour.id as colour.name for colour in colors" >
+                <option value="">-- sélectionner une couleur --</option>
+            </select>
+        </div>
+        <div>
+            <label for="category">Catégorie</label>
+            <select id="category" ng-model="productToUpdate.category.id" ng-options="category.id as category.name for category in categories" >
+                <option value="">-- sélectionner une catégorie --</option>
+            </select>
+        </div>
+        <div>
+            <label for="kind">Genre</label>
+            <select id="kind" ng-model="productToUpdate.kind.id" ng-options="kind.id as kind.name for kind in kinds" >
+                <option value="">-- sélectionner un genre --</option>
+            </select>
+        </div>
+        <div>
+            <label for="type">Modèle</label>
+            <select id="type" ng-model="productToUpdate.type.id" ng-options="type.id as type.name for type in types" >
+                <option value="">-- sélectionner un modèle --</option>
+            </select>
+        </div>
+        <div>
+            <label for="box">Malle</label>
+            <select id="box" ng-model="productToUpdate.box.id" ng-options="box.id as box.name for box in boxes" >
+                <option value="">-- sélectionner une malle --</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.product.$invalid">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

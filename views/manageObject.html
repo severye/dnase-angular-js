@@ -1,0 +1,49 @@
+<h1>{{title}}</h1>
+
+
+<!-- la liste des couleur -->
+<!-- une liste de clients ou de médecins -->
+<div class="row tab-content alert alert-warning" ng-if="objects.data.length!=0">
+    <div class="tab-pane active col-md-6">
+        <table id="colours" class="table">
+            <thead>
+            <tr>
+                <th data-toggle="true">
+                    <span>Nom</span>
+                </th>
+                <th>
+                    <span>Modifier</span>
+                </th>
+                <th>
+                    <span>Supprimer</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="object in objects.data">
+                <td>
+                    {{object.name}}
+                </td>
+                <td>
+                    <button class="btn btn-small btn-primary" ng-click="edit(object)">Modifier</button>
+                </td>
+                <td>
+                    <button href="" ng-if="object.id" class="btn btn-small btn-danger ng-scope ng-binding status-suspended" ng-click="delete(object.id)">
+                        Supprimer
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <form>
+                    <td><input ng-model="addModel.name"/></td>
+                    <td>
+                        <button ng-click="add()" class="btn btn-success ng-scope ng-binding" >
+                            Ajouter
+                        </button>
+                    </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
